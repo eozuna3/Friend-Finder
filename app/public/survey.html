@@ -4,8 +4,8 @@
 <meta name="author" content="Eduardo Ozuna">
 <meta name="description" content="Friend Finder">
 <title>Friend Finder</title>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -223,6 +223,7 @@
       event.preventDefault();
       var selectionArray = [];
 
+
       //  Code to make sure that the user has inputed all necessary information (Validation Code)
       var hasInput1 = false;
       var hasInput2 = 0;
@@ -253,27 +254,30 @@
         $('#modalAlert').modal('show');
         $('#modalAlert').modal('handleUpdate');
       } else {*/
-        $('.chosen-select').each(function () {
-          console.log($(this).val());
-          console.log(typeof ($(this).val()));
-          selectionArray.push($(this).val());
-        });
-        console.log(selectionArray);
-        var newUser = {
-          name: $("#name").val().trim(),
-          photo: $("#photoImage").val().trim(),
-          scores: selectionArray
-        };
-        console.log(newUser);
-/*$.post("/api/new", newUser, function (response) {
+      $('.chosen-select').each(function () {
+        console.log($(this).val());
+        console.log(typeof ($(this).val()));
+        selectionArray.push($(this).val());
+      });
+      console.log(selectionArray);
+      var newUser = {
+        name: $("#name").val().trim(),
+        photo: $("#photoImage").val().trim(),
+        scores: selectionArray
+      };
+      console.log(newUser);
+      $.post("/api/new", newUser, function (response) {
         $("#name").val("");
         $("#photoImage").val("");
+        $('.chosen-select').each(function () {
+          $(this).val("");
+        });
         console.log(response);
-      });*/
-//});
-      
-      
-});
+      });
+      //});
+
+
+    });
   </script>
 </body>
 

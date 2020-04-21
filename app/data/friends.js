@@ -15,7 +15,41 @@ var friendsArray = [
       "5",
       "5",
     ]
-  }
+  },
+  {
+    name: "Jenny Shabazz",
+    photo: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    scores: [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+    ]
+  },
+  {
+    name: "Isabella Marquez",
+    photo: "https://images.pexels.com/photos/1988681/pexels-photo-1988681.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    scores: [
+      "3",
+      "4",
+      "1",
+      "2",
+      "5",
+      "1",
+      "3",
+      "2",
+      "1",
+      "5",
+      "4",
+    ]
+  },
 ]
 
 module.exports = friendsArray;
