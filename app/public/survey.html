@@ -242,7 +242,7 @@
         };
       });
       console.log(hasInput1 + " | " + hasInput2);
-      if (!hasInput1) {
+      /*if (!hasInput1) {
         $(".modal-title").text("Missing Information");
         $(".modal-body").html("<p>Please make sure you enter all the information into the required text boxes.</p>");
         $('#modalAlert').modal('show');
@@ -252,29 +252,28 @@
         $(".modal-body").html("<p>Please fill out all the survey questions before submitting!</p>");
         $('#modalAlert').modal('show');
         $('#modalAlert').modal('handleUpdate');
-      } else {
+      } else {*/
         $('.chosen-select').each(function () {
           console.log($(this).val());
           console.log(typeof ($(this).val()));
-          friendsArray.push($(this).val());
+          selectionArray.push($(this).val());
         });
-        console.log(friendsArray);
+        console.log(selectionArray);
         var newUser = {
           name: $("#name").val().trim(),
-          phone: $("#photoImage").val().trim(),
-          friendsArray: friends
+          photo: $("#photoImage").val().trim(),
+          scores: selectionArray
         };
-      }
-      
-      /*console.log(newReservation);
-      $.post("/api/new", newReservation, function (response) {
+        console.log(newUser);
+/*$.post("/api/new", newUser, function (response) {
         $("#name").val("");
-        $("#phone").val("");
-        $("#email").val("");
-        $("#unique_id").val("");
+        $("#photoImage").val("");
         console.log(response);
       });*/
-    });
+//});
+      
+      
+});
   </script>
 </body>
 
