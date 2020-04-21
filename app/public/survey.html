@@ -164,55 +164,118 @@
   <!--------------------------  Footer ----------------------------->
   <footer class="footer">
     <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/eozuna3/Friend-Finder" target="_blank">Github Repo</a></p>
+      <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/eozuna3/Friend-Finder"
+          target="_blank">Github Repo</a></p>
     </div>
   </footer>
 
-  <!---------------------------  Modal Box  ----------------------->
+  <!---------------------------  Modal Match Box  ----------------------->
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">
+  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">
     Launch demo modal
   </button>
-  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel" aria-hidden="true">
+  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="resulttsModalLabel">Best Match</h2>
+          <h2 class="modal-title" id="resultsModalLabel">Best Match</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <h2 class="font-weight-bold" id="matchName"></h2>
-          <img src="https://images.unsplash.com/photo-1505640070685-2a70292000ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" id="matchImage">
+          <img
+            src="https://images.unsplash.com/photo-1505640070685-2a70292000ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+            id="matchImage">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!--<div id="results-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+  </div>-->
 
-       Modal content
+  <!---------------------------- Modal Alert Box --------------------------->
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalAlert">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h2 class="modal-title"><strong>Best Match</strong></h2>
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-          <h2 id="match-name"></h2>
-          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+          <!-- Data goes here -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
-
     </div>
-  </div>-->
+  </div>
+
+  <!----------  Javascript for get information from form and sending it friends.js -->
+  <script type="text/javascript">
+    $("#submitBtn").on("click", function (event) {
+      event.preventDefault();
+      var selectionArray = [];
+
+      //  Code to make sure that the user has inputed all necessary information (Validation Code)
+      var hasInput1 = false;
+      var hasInput2 = 0;
+      $('.form-control').each(function () {
+        console.log($(this).val());
+        console.log(typeof ($(this).val()));
+        if ($(this).val() !== "") {
+          hasInput1 = true;
+        };
+      });
+
+      $('.chosen-select').each(function () {
+        console.log($(this).val());
+        console.log(typeof ($(this).val()));
+        if ($(this).val() !== "") {
+          hasInput2++;
+        };
+      });
+      console.log(hasInput1 + " | " + hasInput2);
+      if (!hasInput1) {
+        $(".modal-title").text("Missing Information");
+        $(".modal-body").html("<p>Please make sure you enter all the information into the required text boxes.</p>");
+        $('#modalAlert').modal('show');
+        $('#modalAlert').modal('handleUpdate');
+      } else if (hasInput2 < 10) {
+        $(".modal-title").text("Missing Information");
+        $(".modal-body").html("<p>Please fill out all the survey questions before submitting!</p>");
+        $('#modalAlert').modal('show');
+        $('#modalAlert').modal('handleUpdate');
+      } else {
+        $('.chosen-select').each(function () {
+          console.log($(this).val());
+          console.log(typeof ($(this).val()));
+          friendsArray.push($(this).val());
+        });
+        console.log(friendsArray);
+        var newUser = {
+          name: $("#name").val().trim(),
+          phone: $("#photoImage").val().trim(),
+          friendsArray: friends
+        };
+      }
+      
+      /*console.log(newReservation);
+      $.post("/api/new", newReservation, function (response) {
+        $("#name").val("");
+        $("#phone").val("");
+        $("#email").val("");
+        $("#unique_id").val("");
+        console.log(response);
+      });*/
+    });
+  </script>
 </body>
 
 </html>

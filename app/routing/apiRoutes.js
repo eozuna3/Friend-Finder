@@ -1,4 +1,4 @@
-var friendsData = require("../app/data/friends.js");
+var friendsData = require("../data/friends.js");
 
 module.exports = function (app) {
   // returns all friend objects in friends.js file in a JSON format
