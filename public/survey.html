@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Eduardo Ozuna">
+<meta name="description" content="Friend Finder">
+<title>Friend Finder</title>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="border-bottom border-secondary py-2">Survey Questions</h2>
+    <br>
+
+    <h3 class="font-weight-bold">About You</h3>
+    <form>
+      <div class="form-group">
+        <label for="name">Name (Required)</label>
+        <input type="text" class="form-control" id="name" aria-required>
+      </div>
+      <div class="form-group">
+        <lable for="photoImage">Link to Photo Image (Required)</label>
+          <input type="text" class="form-control" id="photoImage" aria-required>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 1</h3>
+        <p for="question1">You love a good party.</p>
+        <select class="chosen-select" id="question1">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 2</h3>
+        <p for="question2">You enjoy going to museums and cultural events.</p>
+        <select class="chosen-select" id="question2">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 3</h3>
+        <p for="question3">You like to talk about feelings and emotions.</p>
+        <select class="chosen-select" id="question3">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 4</h3>
+        <p for="question4">You like to keep a schedule.</p>
+        <select class="chosen-select" id="question4">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 5</h3>
+        <p for="question5">You like to talk about intellectual things like art and philosophy.</p>
+        <select class="chosen-select" id="question5">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 6</h3>
+        <p for="question6">You are a social butterfly.</p>
+        <select class="chosen-select" id="question6">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 7</h3>
+        <p for="question7">You love to travel to exotic places.</p>
+        <select class="chosen-select" id="question7">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 8</h3>
+        <p for="question8">You are more logical than emotional.</p>
+        <select class="chosen-select" id="question8">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 9</h3>
+        <p for="question9">You are very curious about the world.</p>
+        <select class="chosen-select" id="question9">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3 class="font-weight-bold">Question 10</h3>
+        <p for="question10">You are loyal to traditions.</p>
+        <select class="chosen-select" id="question10">
+          <option value></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
+        <i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+      </button>
+    </form>
+  </div>
+  <br>
+
+  <!--------------------------  Footer ----------------------------->
+  <footer class="footer">
+    <div class="container">
+        <p><a href="#">API Table Link</a> | <a href="https://github.com/eozuna3/Friend-Finder" target="_blank">Github Repo</a></p>
+    </div>
+  </footer>
+
+  <!---------------------------  Modal Box  ----------------------->
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">
+    Launch demo modal
+  </button>
+  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="resulttsModalLabel">Best Match</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 class="font-weight-bold" id="matchName"></h2>
+          <img id="matchImage">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--<div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+       Modal content
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h2 class="modal-title"><strong>Best Match</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="match-name"></h2>
+          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>-->
+</body>
+
+</html>
