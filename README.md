@@ -5,20 +5,22 @@ This application uses Node and Express to create a website that works similar to
 
 ### How the application is organized
 * The folder structure for the website is detailed below:
-  `FriendFinder`
-  `- .gitignore`
-  `- app`
-    `- data`
-      `- friends.js`
-    `- public`
-      `- home.html`
-      `- survey.html`
-    `- routing`
-      `- apiRoutes.js`
-      `- htmlRoutes.js`
-  `- node_modules`
-  `- package.json`
-  `- server.js`
+  ```
+  FriendFinder
+  - .gitignore
+  - app
+    - data
+      - friends.js
+    - public
+      - home.html
+      - survey.html
+    - routing
+      - apiRoutes.js
+      - htmlRoutes.js
+  - node_modules
+  - package.json
+  - server.js
+```
 
 This application uses a server.js javascript files that creates a server using express.  The friends.js file holds an array of friends objects which is acting as storage for user information.  The public folder holds the html documents for the website.  Finally the routing folder holds 2 more javascript files.  The htmlRoutes file that handles the movement around the website between html pages.  The apiRoutes handles all the logic for the website to function along with the API call made from the website. 
 
@@ -29,7 +31,7 @@ This application uses a server.js javascript files that creates a server using e
 3.  Express NPM
 4.  HTML
 
-### Running the application
+### Using the application
 To start the application you will need to type in one of the following lines of code into the command line terminal based on whether you would like to be a customer or manager.
 
 `$ node bamazonCustomer.js` or `$ node bamazonManager.js`
@@ -89,3 +91,4 @@ After the manager completes one of the operations it prompts the manager is they
 
 ## Links associated with the application
 1.  Link to git hub repository for this app:  [Github Link](https://github.com/eozuna3/Friend-Finder)
+2.  Link to deployed heroku website:  [Heroku Link](https://blooming-scrubland-03101.herokuapp.com/)
