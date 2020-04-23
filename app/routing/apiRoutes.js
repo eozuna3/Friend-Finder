@@ -8,20 +8,16 @@ module.exports = function (app) {
 
   app.post("/api/new", function (req, res) {
     var newUser = req.body;
+    newUser.scores = newUser.scores.map(Number);
     var differencesArray = [];
-    console.log("Here are the scores for the newUser: " + newUser.scores);
-    console.log("here is the current length of the friendsArray: " + friendsData.length);
     for (let index = 0; index < friendsData.length; index++) {
       var individualScores = friendsData[index].scores;
-      console.log("Here are the scores for each individual in the friendsArray: " + individualScores);
       var totalDifference = 0;
       for (var x = 0; x < 10; x++) {
         totalDifference += (Math.abs(individualScores[x] - newUser.scores[x]));
       }
-      console.log(totalDifference);
       differencesArray.push(totalDifference);
     }
-    console.log(differencesArray);
     friendsData.push(newUser);
     return res.json(friendsData[arrayMin(differencesArray)]);
   })

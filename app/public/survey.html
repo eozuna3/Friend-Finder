@@ -20,6 +20,7 @@
     <h2 class="border-bottom border-secondary py-2">Survey Questions</h2>
     <br>
 
+    <!----------------------------  Survey Form ------------------------------------->
     <h3 class="font-weight-bold">About You</h3>
     <form>
       <div class="form-group">
@@ -169,40 +170,12 @@
     </div>
   </footer>
 
-  <!---------------------------  Modal Match Box  ----------------------->
-
-  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">
-    Launch demo modal
-  </button>
-  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="resultsModalLabel">Best Match</h2>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h2 class="font-weight-bold" id="matchName"></h2>
-          <img
-            src="https://images.unsplash.com/photo-1505640070685-2a70292000ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-            id="matchImage">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
   <!---------------------------- Modal Alert Box --------------------------->
   <div class="modal fade" tabindex="-1" role="dialog" id="modalAlert">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"></h5>
+          <h5 class="modal-title font-weight-bold"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -228,22 +201,18 @@
       var hasInput1 = false;
       var hasInput2 = 0;
       $('.form-control').each(function () {
-        console.log($(this).val());
-        console.log(typeof ($(this).val()));
         if ($(this).val() !== "") {
           hasInput1 = true;
         };
       });
 
       $('.chosen-select').each(function () {
-        console.log($(this).val());
-        console.log(typeof ($(this).val()));
         if ($(this).val() !== "") {
           hasInput2++;
         };
       });
-      console.log(hasInput1 + " | " + hasInput2);
-      /*if (!hasInput1) {
+      
+      if (!hasInput1) {
         $(".modal-title").text("Missing Information");
         $(".modal-body").html("<p>Please make sure you enter all the information into the required text boxes.</p>");
         $('#modalAlert').modal('show');
@@ -253,19 +222,22 @@
         $(".modal-body").html("<p>Please fill out all the survey questions before submitting!</p>");
         $('#modalAlert').modal('show');
         $('#modalAlert').modal('handleUpdate');
-      } else {*/
-      $('.chosen-select').each(function () {
-        console.log($(this).val());
-        console.log(typeof ($(this).val()));
+      } else {
+        // Create score array of integers for newUser from the information placed in the form
+        $('.chosen-select').each(function () {
         selectionArray.push(parseInt($(this).val()));
       });
       console.log(selectionArray);
+      
+      //  Create the newUser object using information placed in the form above
       var newUser = {
         name: $("#name").val().trim(),
         photo: $("#photoImage").val().trim(),
         scores: selectionArray
       };
       console.log(newUser);
+
+      //  POST method to send the newUser object to the server and returns the friend object that is the best match for the newUser in the response  
       $.post("/api/new", newUser, function (response) {
         $("#name").val("");
         $("#photoImage").val("");
@@ -273,11 +245,15 @@
           $(this).val("");
         });
         console.log(response);
+
+        //  Outputs to the modal the best match information for the return friend object
+        $(".modal-title").text("Best Match");
+        $(".modal-body").html("<h2>"+ response.name + "</h2><img class='img-fluid' src='" + response.photo + "'>");
+        $('#modalAlert').modal('show');
+        $('#modalAlert').modal('handleUpdate');
       });
-      //});
-
-
-    });
+    }
+});
   </script>
 </body>
 
