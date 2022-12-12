@@ -19,6 +19,6 @@
   "homepage": "https://github.com/eozuna3/Friend-Finder#readme",
   "dependencies": {
     "bootstrap-icons": "^1.0.0-alpha3",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
